@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Routing\Controller;
+// use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Support\Facades\Schema;
 
@@ -34,16 +34,15 @@ use Illuminate\Support\Facades\Route;
 //     'uses'=>'PageController@geChitiet'			
 //     ]);	
     
-//     Route::get('/database', function () {
-//       Schema::create('loaianpham', function ($table) {
-//           $table->increments('id');
-//           $table->string('ten', 2000);
-//       });
+    Route::get('/database', function () {
+      Schema::create('loaianpham', function ($table) {
+          $table->increments('id');
+          $table->string('ten', 2000);
+      });
   
-//       echo "Đã thực hiện tạo bảng thành công!";
-//   });
+      echo "Đã thực hiện tạo bảng thành công!";
+  });
   
 
-Route::get('/signup',"signupController@index");
-Route::post('/signup',"signupController@displayInfor");
-
+// Route::get('/signup',"signupController@index");
+// Route::post('/signup',"signupController@displayInfor");
