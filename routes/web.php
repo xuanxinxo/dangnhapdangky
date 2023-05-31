@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 // trang cắt layout
 // Route::get('/', function () {return view('master');}) -> name('index');
-// Route::get('/', function () {return view('page.trangchu');}) -> name('home');
+// Route::get('/home', function () {return view('page.trangchu');}) -> name('home');
 
 // Route::get('loai-san-pham',[				
 // 	'as'=>'loaisanpham',			
@@ -34,6 +34,12 @@ use Illuminate\Support\Facades\Route;
 //     'uses'=>'PageController@geChitiet'			
 //     ]);	
     
+
+    Route::get('/slide', [App\Http\Controllers\PageController::class,'getIndex']);
+
+    Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetail']);
+
+
     Route::get('/database', function () {
       Schema::create('loaianpham', function ($table) {
           $table->increments('id');
@@ -44,5 +50,7 @@ use Illuminate\Support\Facades\Route;
   });
   
 
-// Route::get('/signup',"signupController@index");
-// Route::post('/signup',"signupController@displayInfor");
+Route::get('/signup',"signupController@index");
+Route::post('/signup',"signupController@displayInfor");
+
+// Route::get('/master',"pageController@getIndex");
