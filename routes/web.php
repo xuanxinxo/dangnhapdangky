@@ -35,22 +35,38 @@ use Illuminate\Support\Facades\Route;
 //     ]);	
     
 
-    Route::get('/slide', [App\Http\Controllers\PageController::class,'getIndex']);
-
+    // trang web bánh mi
+    Route::get('/', function(){
+        return redirect('/trangchu');
+    });
+    Route::get('/trangchu', [App\Http\Controllers\PageController::class,'getIndex']);
+    Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
     Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetail']);
 
+    Route::get('/contact', [App\Http\Controllers\PageController::class,'getContact']);
+    Route::get('/about', [App\Http\Controllers\PageController::class,'getAbout']);
 
-    Route::get('/database', function () {
-      Schema::create('loaianpham', function ($table) {
-          $table->increments('id');
-          $table->string('ten', 2000);
-      });
+
+    
+    Route::get('loai-san-pham/{type}',[				
+        'as'=>'loaisanpham',			
+        'uses'=>'PageController@getLoaiSp'		
+        
+        ]);			
+
+
+
+//     Route::get('/database', function () {
+//       Schema::create('loaianpham', function ($table) {
+//           $table->increments('id');
+//           $table->string('ten', 2000);
+//       });
   
-      echo "Đã thực hiện tạo bảng thành công!";
-  });
+//       echo "Đã thực hiện tạo bảng thành công!";
+//   });
   
 
-Route::get('/signup',"signupController@index");
-Route::post('/signup',"signupController@displayInfor");
+// Route::get('/signup',"signupController@index");
+// Route::post('/signup',"signupController@displayInfor");
 
 // Route::get('/master',"pageController@getIndex");

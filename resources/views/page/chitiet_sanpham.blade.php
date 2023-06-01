@@ -118,7 +118,7 @@
                             @if (isset($comments))
                                 @foreach ($comments as $comment)
                                     <p class="border-bottom">
-
+                                        
                                     <p><b class="pull-left">{{ $comment->username }}</b></p><br />
                                     <p>{{ $comment->comment }}</p>
                                     </p>
@@ -126,7 +126,9 @@
                             @else
                                 <p>Chưa có bình luận nào cả!</p>
                             @endif
+                            
                         </div>
+
 
                     </div>
                     <div class="space50">&nbsp;</div>
