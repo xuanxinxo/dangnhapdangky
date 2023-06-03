@@ -38,10 +38,10 @@ use App\Http\Controllers\PageController;
 
     // trang web bánh mi
     Route::get('/', function(){
-        return redirect('/trangchu');
+        return redirect('/slide');
     });
 
-    Route::get('/trangchu', [App\Http\Controllers\PageController::class,'getIndex']);
+    Route::get('/slide', [App\Http\Controllers\PageController::class,'getIndex']);
     Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
     Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetail']);
 
