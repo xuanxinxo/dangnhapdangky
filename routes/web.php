@@ -2,6 +2,7 @@
 
 // use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 //use Illuminate\Support\Facades\Schema;
 
 /*
@@ -39,6 +40,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', function(){
         return redirect('/trangchu');
     });
+
     Route::get('/trangchu', [App\Http\Controllers\PageController::class,'getIndex']);
     Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
     Route::get('/detail/{id}', [App\Http\Controllers\PageController::class,'getDetail']);
@@ -47,7 +49,32 @@ use Illuminate\Support\Facades\Route;
     Route::get('/about', [App\Http\Controllers\PageController::class,'getAbout']);
 
 
+
+
+    //Admin
+    Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);											
     
+    //Cấu hình Route  để chạy giao diện thêm sản phẩm					
+    Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');	
+    
+    //Xây dựng Route để thưc hiện Post dữ liệu					
+    Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);	
+    
+    //Xây dựng Route để thực hiện Sữa giao diện cho trang sửa
+    Route::get('/admin-edit-form/{id}', [App\Http\Controllers\PageController::class, 'getAdminEdit'])->name('getAdminEdit');	
+    
+    // Xây dựng Route để thực hiện Sữa giao diện cho trang sửa
+    Route::post('/admin-edit', [App\Http\Controllers\PageController::class, 'postAdminEdit']);	
+    
+    // Xây dựng Route để thực hiện xóa sản phẩm
+    Route::get('/admin-delete{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete'])->name('postAdminDelete');
+
+
+    Route::get('/admin-export', [App\Http\Controllers\PageController::class, 'exportController@export'])->name('export');
+
+
+
+
     Route::get('loai-san-pham/{type}',[				
         'as'=>'loaisanpham',			
         'uses'=>'PageController@getLoaiSp'		
