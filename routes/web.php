@@ -79,7 +79,7 @@ use App\Http\Controllers\PageController;
         'as'=>'loaisanpham',			
         'uses'=>'PageController@getLoaiSp'		
         
-        ]);			
+        ]);	
 
 
 
@@ -97,3 +97,12 @@ use App\Http\Controllers\PageController;
 // Route::post('/signup',"signupController@displayInfor");
 
 // Route::get('/master',"pageController@getIndex");
+
+
+
+// Route::get('/t_ladara', [T_ladaraController::class, 'index'])->name('t_ladara.index');
+// Route::post('/t_ladara', [T_ladaraController::class, 'store'])->name('t_ladara.store');
+// Route::get('/t_ladara/{t_ladara}', [T_ladaraController::class, 'show'])->name('t_ladara.show');
+// Route::get('/t_ladara/{t_ladara}/edit', [T_ladaraController::class, 'edit'])->name('t_ladara.edit');
+// Route::put('/t_ladara/{t_ladara}', [T_ladaraController::class, 'update'])->name('t_ladara.update');
+// Route::delete('/t_ladara/{t_ladara}', [T_ladaraController::class, 'destroy'])->name('t_ladara.destroy');
