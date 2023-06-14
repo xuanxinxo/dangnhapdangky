@@ -72,6 +72,21 @@ use App\Http\Controllers\PageController;
 
     Route::get('/admin-export', [App\Http\Controllers\PageController::class, 'exportController@export'])->name('export');
 
+    Route::get('/register', function () {	
+            return view('users.register');		
+    });		
+    Route::post('/register',[UserController::class,'Register'])	;
+
+    Route::get('/login', function () {						
+        return view('users.login');						
+        });						
+    Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+
+
+
+
+
 
 
 

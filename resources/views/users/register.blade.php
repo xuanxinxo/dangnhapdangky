@@ -4,7 +4,7 @@
 <div class="inner-header">				
 <div class="container">				
 <div class="pull-left">				
-<h6 class="inner-title">Đăng kí</h6>				
+<h6 class="inner-title">Đăng Kí Cùng mình nhé</h6>				
 </div>				
 <div class="pull-right">				
 <div class="beta-breadcrumb">				
@@ -16,7 +16,7 @@
 </div>				
 <div class="container">				
 <div id="content">				
-@include('error')				
+@include('room.error')				
 <form action="register" method="POST" class="beta-form-checkout">				
 @csrf				
 <div class="row">				

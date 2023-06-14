@@ -31,10 +31,10 @@
                                 
     Route::post('/upload-image',[APIController::class,'uploadImage']);							
 
-    Route::get('/register', function () {		
-        return view('users.register');		
-        });		
-    Route::post('/register',[UserController::class,'Register'])	;
+    // Route::get('/register', function () {		
+    //     return view('users.register');		
+    //     });		
+    // Route::post('/register',[UserController::class,'Register'])	;
 
 
     Route::get('/get-products',[ProductController::class,'getProducts']);
