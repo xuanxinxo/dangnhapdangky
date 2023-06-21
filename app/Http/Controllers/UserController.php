@@ -12,14 +12,14 @@ class UserController extends Controller
     public function Login(Request $request)
     {
     $login =[
-        'name' => $request -> input('name'),
         'email' => $request -> input('email'),
         'password' => $request -> input('pw')
     ];
+
     if (Auth::attempt($login)){
         $user = Auth::user();
         Session::put('user',$user);
-        echo '<script> alert("DN THANH CONG");window.location.assign("../../resources/views/page/trangchu");</script>';
+        echo '<script> alert("DN THANH CONG");window.location.assign("http://127.0.0.1:8000/slide");</script>';
     }else{
         echo '<script> alert("DN THAT BAI");window.location.assign("login");</script>';
     }
@@ -28,7 +28,7 @@ class UserController extends Controller
     public function Logout(){
         Session::forget('user');
         Session::forget('cart');
-        return redirect('/trangchu');
+        return redirect('/slide');
     }
 
     public function Register(Request $request)

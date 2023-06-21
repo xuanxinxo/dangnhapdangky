@@ -2,7 +2,6 @@
 
 // use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
 //use Illuminate\Support\Facades\Schema;
 
 /*
@@ -49,7 +48,8 @@ use App\Http\Controllers\PageController;
     Route::get('/about', [App\Http\Controllers\PageController::class,'getAbout']);
 
 
-
+    Route::get('add-to-cart/{id}', [App\Http\Controllers\PageController::class, 'getAddToCart'])->name('themgiohang');												
+    Route::get('del-cart/{id}', [App\Http\Controllers\PageController::class, 'getDelItemCart'])->name('xoagiohang');
 
     //Admin
     Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);											
@@ -75,20 +75,21 @@ use App\Http\Controllers\PageController;
     Route::get('/register', function () {	
             return view('users.register');		
     });		
-    Route::post('/register',[UserController::class,'Register'])	;
+    Route::post('/register',[App\Http\Controllers\UserController::class,'Register'])	;
 
     Route::get('/login', function () {						
         return view('users.login');						
         });						
-    Route::post('/login', 'Auth\LoginController@login')->name('login');
+    Route::post('/login', [App\Http\Controllers\UserController::class,'Login'])->name('login');
 
 
+    Route::get('/logout',[App\Http\Controllers\UserController::class,'Logout']);
+
+    Route::get('check-out', [App\Http\Controllers\PageController::class, 'getCheckout'])->name('dathang');
+    Route::post('check-out', [App\Http\Controllers\PageController::class, 'postCheckout'])->name('dathang');
 
 
-
-
-
-
+    
 
     Route::get('loai-san-pham/{type}',[				
         'as'=>'loaisanpham',			
@@ -96,6 +97,11 @@ use App\Http\Controllers\PageController;
         
         ]);	
 
+    Route::get('add-to-cart/{id}', [App\Http\Controllers\PageController::class, 'getAddToCart'])->name('themgiohang');												
+	Route::get('del-cart/{id}', [App\Http\Controllers\PageController::class, 'getDelItemCart'])->name('xoagiohang');												
+	
+    Route::get('check-out', [App\Http\Controllers\PageController::class, 'getCheckout'])->name('dathang');				
+	Route::post('check-out', [App\Http\Controllers\PageController::class, 'postCheckout'])->name('dathang');
 
 
 //     Route::get('/database', function () {
